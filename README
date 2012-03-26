@@ -1,0 +1,16 @@
+Contains set of pc files that enable SGX binaries to be used with autoconf based systems and takes the pain out of cross-compilation. 
+
+- Package-name = sgx-null-gles2 (or sgx-null-gles1)
+
+- Shell script to install this additional pc info to target filesystem. This installs the necessary package information so that pkg-config does find SGX libraries and include paths easily (no more -L and -I)  
+
+- Sample configure.in provided for easy integration
+
+
+STEPS:
+
+- Execute sgxconfigure.sh with right arguments
+
+- Include the configure.in snippet in your configure.in 
+
+- Perform autoconfig foo as usual

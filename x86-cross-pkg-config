@@ -1,0 +1,15 @@
+#!/bin/sh
+
+#Host pkg-config script to run on x86, targeting armv7a
+#Tested on pkg-config 0.23 (from arm-arago)
+#Will not work on pkg-config 0.22 or lower
+
+#For using this script, do below, and autoconf will do the rest
+#export PKG_CONFIG=$PWD/x86-cross-pkg-config
+
+export TARGET_ROOTFS=<some/path>
+#unset this first then set libdir correctly
+export PKG_CONFIG_DIR=
+export PKG_CONFIG_LIBDIR=${TARGET_ROOTFS}/usr/lib/arm-linux-gnueabi/pkgconfig:${TARGET_ROOTFS}/usr/share/pkgconfig
+export PKG_CONFIG_SYSROOT_DIR=${TARGET_ROOTFS}
+/opt/toolchain-4.5.3-dynamic/arago-2011.09/armv7a/bin/pkg-config "$@"

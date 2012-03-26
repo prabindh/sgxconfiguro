@@ -1,0 +1,39 @@
+dnl ========================================================
+dnl   Autoconfig init script for sgxconfiguro.
+dnl Pre-req: sgxconfiguro should have been run
+dnl
+dnl Process this file autoconf to produce configure script,
+dnl  or include this snippet in another configure.in file
+dnl Author prabu@ti.com
+dnl ========================================================
+
+
+
+dnl ========================================================
+dnl = SGX null ws (GLES2) configuration using sgxconfiguro
+dnl ========================================================
+    SGX_VERSION=1.6.16.4117
+    PKG_CHECK_MODULES(__SGXCONFIGURO, sgx-null-gles2 >= $SGX_VERSION)
+
+    PKG_CHECK_MODULES(SGXCONFIGURO, sgx-null-gles2 >= $SGX_VERSION)
+    AC_SUBST(SGXCONFIGURO_CFLAGS)
+    AC_SUBST(SGXCONFIGURO_LIBS)
+
+    _SAVE_LDFLAGS=$LDFLAGS
+    LDFLAGS="$SGXCONFIGURO_LIBS $LDFLAGS"
+    _SAVE_CFLAGS=$CFLAGS
+    CFLAGS="$SGXCONFIGURO_CFLAGS $CFLAGS"
+
+    AC_MSG_CHECKING([Checking for SGX GLES2 compile and link])
+    AC_TRY_LINK([#include <GLES2/gl2.h>],
+        { \
+            /* Taken from sgxperf */ \
+            GLuint uiFragShader = glCreateShader(GL_FRAGMENT_SHADER); \
+            return 0; \
+        } \
+        , [ ogles2=yes ], [ ogles2=no ])
+    if test "$ogles2" != "yes"; then
+        AC_MSG_ERROR([GLES2 program could not be built. Error!])
+    fi
+    LDFLAGS=$_SAVE_LDFLAGS
+    CFLAGS=$_SAVE_CFLAGS
