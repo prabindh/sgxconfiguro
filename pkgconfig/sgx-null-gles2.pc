@@ -1,7 +1,6 @@
-prefix=/usr
 exec_prefix=${prefix}
 libdir=/usr/lib/
-includedir=${prefix}/include
+includedir=${prefix}/usr/include
 
 Name: SGX binaries for GLES2 fullscreen (null ws)
 Description: SGX user mode binaries for fullscreen rendering with GLES2
