@@ -1,3 +1,4 @@
+prefix=/usr
 exec_prefix=${prefix}
 libdir=/usr/lib/
 includedir=${prefix}/usr/include
