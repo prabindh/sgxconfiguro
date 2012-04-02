@@ -1,0 +1,11 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=/usr/lib/
+includedir=${prefix}/usr/include
+
+Name: SGX binaries for GLES2 fullscreen (X11 ws)
+Description: SGX user mode binaries for X11 rendering with GLES2
+Version: 1.6.16.4117
+Requires:
+Libs: -L${libdir} -lEGL -lGLESv2 -lX11 -lXau
+Cflags: -I${includedir}/sgx/OGLES2 -I${includedir}/sgx/pvr2d -I${includedir}/sgx/wsegl -I${includedir}/sgx/bufferclass_ti
