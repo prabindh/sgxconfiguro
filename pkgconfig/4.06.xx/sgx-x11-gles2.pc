@@ -1,0 +1,11 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=/usr/lib/
+includedir=${prefix}/usr/include
+
+Name: SGX binaries for GLES2 (X11 ws)
+Description: SGX user mode binaries for X11 rendering with GLES2
+Version: 1.7.78.3851
+Requires:
+Libs: -L${libdir} -lEGL -lGLESv2 -lX11 -lXau
+Cflags: -I${includedir}/sgx/OGLES2

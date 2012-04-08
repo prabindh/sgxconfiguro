@@ -1,0 +1,2 @@
+Each folder represents a corresponding TI SGX Graphisc SDK release. For example, 4.06.xx represents release to be used with 4.06.00.01 series of driver packages. Choose the correct folder package, and run the install script, then use the sgxconfiguro.in to include the detection snippet in your configure scripts.
+
