@@ -1,10 +1,9 @@
-Contains set of pc files that enable SGX binaries to be used with autoconf based systems and takes the pain out of cross-compilation. Validated with Qt4, Qt5, and other packages.
+Contains set of pc files that enable SGX binaries to be used with autoconf based systems and takes the pain out of cross-compilation. Validated with Qt4, Qt5, and other packages with 4.09 and later Graphics SDKs.
 
 - Package-names = sgx-gles2, sgx-null-egl
 
 - Shell script to install this additional pc info to target filesystem. This installs the necessary package information so that pkg-config does find SGX libraries and include paths easily (no more -L and -I)  
 
-- Sample configure.in provided for easy integration
 
 
 STEPS:
@@ -22,3 +21,4 @@ export PKG_CONFIG=/home/prabindh/work1/arm-qt5-5.2a-gst/qt-everywhere-opensource
 
 
 prabindh@yahoo.com
+(last updated 2014)
