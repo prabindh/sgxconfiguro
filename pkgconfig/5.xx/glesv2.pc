@@ -1,0 +1,11 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${prefix}/lib/
+includedir=${prefix}/include
+
+Name: SGX binaries for GLES2
+Description: SGX user mode binaries for GLES2
+Version: 1.9
+Requires:
+Libs: -L${libdir} -lGLESv2 -lGLES_CM -lsrv_um -lusc -lEGL -lIMGegl
+Cflags: -I${includedir}/sgx/OGLES2
