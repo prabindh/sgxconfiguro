@@ -219,6 +219,11 @@ fi
 # Dont install any modules - Prabu, for chroot, only libs
 fi
 
+	# Install the .pc files
+	cp egl.pc /usr/lib/arm-linux-gnueabihf/pkgconfig/
+	cp glesv2.pc /usr/lib/arm-linux-gnueabihf/pkgconfig/
+
+
 	# Install the standard libraries
 	#
 	install_file libGLES_CM.so /usr/lib/libGLES_CM.so.1.9.2188537 "shared library" 0644 0:0
